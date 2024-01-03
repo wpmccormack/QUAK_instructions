@@ -1,0 +1,12 @@
+universe = vanilla
+Executable = getEffsAndSysts.sh
+arguments = $(ClusterId) $(ProcId)
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+Output = batch_logs/test1_$(ClusterId)_$(ProcId).stdout
+Error = batch_logs/test1_$(ClusterId)_$(ProcId).stderr
+Log = batch_logs/test1_$(ClusterId)_$(ProcId).log
+RequestDisk = 2000000
+RequestCpus = 1
+RequestMemory = 7500
+Queue 87
