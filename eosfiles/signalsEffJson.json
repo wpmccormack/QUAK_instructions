@@ -1,0 +1,26 @@
+{
+    "Qstar3000_W400": {
+        "uncertainty": 0.52,
+        "efficiency": 0.016
+    },
+    "Wkk3000_R400": {
+        "uncertainty": 0.27,
+        "efficiency": 0.153
+    },
+    "Wp3000_B400_T170": {
+        "uncertainty": 0.31,
+        "efficiency": 0.169
+    },
+    "XYY3000_Y400_Yp400": {
+        "uncertainty": 0.15,
+        "efficiency": 0.014
+    },
+    "YHH3000_H400": {
+        "uncertainty": 0.26,
+        "efficiency": 0.47
+    },
+    "ZTT3000_Tp400": {
+        "uncertainty": 0.33,
+        "efficiency": 0.363
+    }
+}

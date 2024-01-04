@@ -61,12 +61,14 @@ python runQuakSpace_editJul25.py -b BKG_mjjFlat -s M170-170 -s M170-400 -s M400-
 where -s specifies the signal axis (or axes if you use more than one), -r specifies the reduction, -i specifies the signal name, the h5 files are in lossEvals_pcaDecorr_boxCox_local_Jul24, -n specifies the number of signal events to inject, and -m specifies the background type.  -m of 2 runs on actual data.  I've been using the h5 files that are in /eos/uscms/store/user/sbrightt/CASE/final_trainings_bugFix_July2023/lossEvals_pcaDecorr_boxCox/ on lpc.
 
 
-## Running on batch systems
+## Running on batch systems and getting limits
 
 For getting limits for a large number of signals, you're going to want to run on a batch system.  I normally use LPC's.
 
+In this repo, I've copied several examples of condor submission scripts and steering macros.  This should be everything you need to get limits.
 
-
-PUT FILES IN EOS THAT MIGHT GO AWAY IN THIS GIT REPO!
-
-ALSO specify how to get efficiencies?
+For example, the following process should work:
+* First, you'll probably want to make the signal templates.  This can be done with code in the makeSignalTemplates directory.
+  * This is true for all steps of this workflow:  In the versions of the scripts included in this repo, several files are recovered from my eos space.  The tarball that's copied in is just CMSSW_10_2_13 with the CASEUtils fitting code copied in.  You can make your own tarball for that if you want.  The code that runs here retrieves root files from Sam's eos space to run on.  I've also added some of the files that are retrieved from my eos space into the eosfiles directory in this git repo.  Another thing to note is that some files are copied into my eos space.  E.g. into /store/user/wmccorma/CASE_SIGNAL_TEMPLATES.  You'll want to edit this for your own purposes.
+*Second, you want to run the jobs based on the scripts in getEffsAndSysts.  As the name of this directory suggests, it gets the signal selection efficiency and systematic uncertainties for signals.
+* Then you can get the limits using the code in e.g. gettingFullGenericLimits.  
